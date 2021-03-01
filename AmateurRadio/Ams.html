@@ -1,0 +1,131 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Amatuer Satellite Antenna System 1</title>
+</head>
+
+<body TEXT="#0000F0" LINK="#0000ff" VLINK="#ff00ff" ALINK="#ff0000" BGCOLOR="#0cd0a0">
+<p align="center"><font color="#0000FF"><font size="5">Amateur Satellite Antenna System #1</font></font></p>
+<script language=JavaScript src="frames_body_array.js" type=text/javascript></script>
+<script language=JavaScript src="mmenu.js" type=text/javascript></script> 
+	
+
+<p align="center" style="margin-top: 0; margin-bottom: 0">This year I decided to 
+build a completely new amateur satellite antenna system.&nbsp; I started with a  
+	
+
+<p align="center" style="margin-top: 0; margin-bottom: 0">conventional TV 
+antenna rotator and an antique &quot;Tenna&quot; rotator.&nbsp; Both from eBay both &lt; 
+$100.<p align="center" style="margin-top: 0; margin-bottom: 0">The Tenna is nice 
+because it has a pass through for the antenna pole and a side mount making it a  
+	
+
+<p align="center" style="margin-top: 0; margin-bottom: 0">perfect choice for the 
+elevation rotor.&nbsp; Because of its age it required some reconditioning.&nbsp; 
+Removing rusted,<p align="center" style="margin-top: 0; margin-bottom: 0">&nbsp;broken 
+bolts, new lube and some cleaning.&nbsp; Luckily both rotors work on similar 
+voltages - about 18VAC.<p align="center" style="margin-top: 0; margin-bottom: 0">
+Both use a standard 3 wire, 90 degree phase shit arrangement to control 
+direction.&nbsp; The controller consists of a  
+	
+
+<p align="center" style="margin-top: 0; margin-bottom: 0">
+18F2220 PIC processor, some relays, and&nbsp; 
+a couple of chips for level shifting to drive the relays and the RS-232 port.<p align="center" style="margin-top: 0; margin-bottom: 0">
+The software is in C and is available below.&nbsp; The zip file contains the 
+entire MP Lab project.<p align="center" style="margin-top: 0; margin-bottom: 0">
+The first iteration did not have the complete isolation between the digital 
+portion and the motors.&nbsp; BIG MISTAKE.<p align="center" style="margin-top: 0; margin-bottom: 0">
+Everything was fine in the shop, but on the metal roof a substantial potential 
+exists between the motor housings and AC neutral.<p align="center" style="margin-top: 0; margin-bottom: 0">
+When I first attached the unit to the radio computer I blew up part of the DC 
+supply in the controller, the PIC chip  
+	
+
+<p align="center" style="margin-top: 0; margin-bottom: 0">and destroyed the 
+serial port on the computer.&nbsp; Lesson learned!&nbsp; If you build one use 
+the same isolation or you may live to regret it!<p align="center" style="margin-top: 0; margin-bottom: 0">
+Finally, in addition to the firmware there is a nice Java program which controls 
+the controller and optionally, a FT-767 radio.<p align="center" style="margin-top: 0; margin-bottom: 0">
+The java software is tailored for windows, but should work on Linux or Mac OS/X 
+with little or no modification.&nbsp; It also<p align="center" style="margin-top: 0; margin-bottom: 0">
+incorporates a DDE client for <a href="http://www.stoff.pl/">
+<font color="#FF0000">Orbitron</font></a> - a popular satellite tracking 
+package.&nbsp; Because of a peculiarity in the way Orbitron<p align="center" style="margin-top: 0; margin-bottom: 0">
+is designed you have to &quot;lie&quot; to it and let it think it is interfacing a 
+different program called MyDDE.&nbsp; When you tell orbitron to  
+	
+
+<p align="center" style="margin-top: 0; margin-bottom: 0">connect it loads a 
+&quot;fake&quot; executable for MyDDE (supplied) which immediately crashes - but that's ok 
+it starts the DDE server<p align="center" style="margin-top: 0; margin-bottom: 0">
+which is what we care about.&nbsp; Once linked up the Java software allow 
+automatic tracking of the satellite as soon as its at least 3 degrees<p align="center" style="margin-top: 0; margin-bottom: 0">
+above the horizon, and tracks down to 3 degrees, it will also adjust the radio 
+frequency as need (about every 2,5 KHz change).<p align="center" style="margin-top: 0; margin-bottom: 0">
+Instead of Obitron&nbsp; you can elect to put in a list of at least 3 look 
+angles - Az., El., Time and optional xmit and rcv frequencies<p align="center" style="margin-top: 0; margin-bottom: 0">
+at rise, set and midpoint of the pass.&nbsp; The software will interpolate 
+positions and frequencies in between these that are adequate for most<p align="center" style="margin-top: 0; margin-bottom: 0">
+passes, but not very accurate.&nbsp; The direct link to Orbitron works best, but 
+of course, only on Windows.<p align="center">&nbsp;<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="679">
+		<p align="center">
+		<img border="0" src="images/AMS_Ant.jpg" width="640" height="516"></td>
+		<td>
+		<p align="center">
+		<img border="0" src="images/AMS_Ctl1.jpg" width="640" height="427"></td>
+	</tr>
+	<tr>
+		<td width="679">
+		<p align="center">The antennas on the roof</td>
+		<td>
+		<p align="center">Inside the controller box</td>
+	</tr>
+	<tr>
+		<td width="679">
+		<p align="center">
+		<img border="0" src="images/AMS_Ctl_SCH1.jpg" width="645" height="382"></td>
+		<td>
+		<p align="center">
+		<img border="0" src="images/AMS_Ctl_SCH2.jpg" width="531" height="376"></td>
+	</tr>
+	<tr>
+		<td width="679">
+		<p align="center">Controller schematic</td>
+		<td>
+		<p align="center">Controller power supply and interconnection</td>
+	</tr>
+</table>
+<p align="center">&nbsp;  
+	
+
+Here is a screen shot of the Java software while it is connected to Orbitron's 
+DDE server.&nbsp; As you can see the satellite selected is below the horizon.<p align="center">
+<img border="0" src="images/TrkCtl.jpg" width="331" height="465"><p align="center" style="margin-top: 0; margin-bottom: 0">
+The rise time is 7 hours away,&nbsp; I have entered the rise time, angles and 
+frequencies into the list to illustrate that function as well.<p align="center" style="margin-top: 0; margin-bottom: 0">
+The rotor controller firmware is here : <a href="rotor_ctl.zip">rotor_ctl.zip</a><p align="center" style="margin-top: 0; margin-bottom: 0">
+The serial commands are very simple ASCII commands, they must be all caps all 
+are terminated by either a line feed or carriage return:<p align="center" style="margin-top: 0; margin-bottom: 0">
+P - show current position  
+	
+
+<p align="center" style="margin-top: 0; margin-bottom: 0">Z - set current 
+position to 0<p align="center" style="margin-top: 0; margin-bottom: 0">Axxx - 
+Azimuth in integer degrees (-360 to 360)<p align="center" style="margin-top: 0; margin-bottom: 0">
+Exx - Elevation in integer degrees (-90 to 90)<p align="center" style="margin-top: 0; margin-bottom: 0">
+Here is the Java software shown above including the entire Eclipse project to 
+build it.&nbsp; If you just want to run it look in the distribution  
+	
+
+<p align="center" style="margin-top: 0; margin-bottom: 0">directory, there you 
+will find a .cmd file which starts it on most platforms.<p align="center" style="margin-top: 0; margin-bottom: 0">
+<a href="Track_Controller.zip">Track_Controller.zip</a><p align="center" style="margin-top: 0; margin-bottom: 0">&nbsp;<p align="center" style="margin-top: 0; margin-bottom: 0">&nbsp;  
+	
+
+</body>
+</html>

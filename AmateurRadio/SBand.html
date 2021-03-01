@@ -1,0 +1,331 @@
+<HTML>
+<HEAD>
+<META NAME="Generator" CONTENT="Microsoft FrontPage 6.0">
+<META NAME="Author" CONTENT="Ed Johnson">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<TITLE>Projects</TITLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" VLINK="#ff00ff" ALINK="#ff0000" BGCOLOR="#0cd0a0">
+<script language=JavaScript src="frames_body_array.js" type=text/javascript></script>
+<script language=JavaScript src="mmenu.js" type=text/javascript></script>  
+<P ALIGN="CENTER"><font size="5"><b>2400 MHz - 435 MHz Receive Converter part 2</b></font></P>
+
+<P ALIGN="left">&nbsp;</P>
+
+<P ALIGN="left">After building the new synthesizer (below) I decided that it was
+foolish to mate it with surplus 1970's vintage technology for the receiver so I
+designed a new receiver converter with modern components as well.&nbsp; Here are
+a couple of photos of the receiver in its shield enclosure (a recycled FO video
+modulator housing) and the whole receiver mated to its enclosure base.</P>
+
+<div align="center">
+  <center>
+  <table border="0" width="83%">
+    <tr>
+      <td width="45%">
+        <p align="center"><img border="0" src="images/SRcvr.jpg" width="500" height="200"></td>
+      <td width="55%">
+        <p align="center"><img border="0" src="images/SFE.jpg" width="400" height="300"></td>
+    </tr>
+    <tr>
+      <td width="45%">
+        <p align="center">Assembled receiver with cavity filter</td>
+      <td width="55%">
+        <p align="center">Front end electronics</td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<P ALIGN="left">And here are a couple of photos of the input filter as it was
+being assembled.&nbsp; A very conventional cavity filter which has an insertion
+loss at 2401 MHz of 0.5 dB and a 3dB bandwidth of about 15 MHz.&nbsp; Wide enough
+for use at 2396 but narrow enough to provide some real attenuation at the 2450
+MHz used by wireless networking gear and microwave ovens.&nbsp; About $2 worth
+of standard copper plumbing fittings, a few square inches of copper sheet, 2 SMA
+connectors (by far the most expensive parts!) and some solder.</P>
+
+<div align="center">
+  <center>
+  <table border="0" width="49%">
+    <tr>
+      <td width="50%">
+        <p align="center"><img border="0" src="images/Filt1.jpg" width="300" height="365"></td>
+      <td width="50%"><img border="0" src="images/Filt2.jpg" width="200" height="383"></td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <p align="center">Couplers and tuning stub</td>
+      <td width="50%">
+        <p align="center">Assembled cavity</td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<P ALIGN="left">Finally here is a picture of the schematic for the front end.&nbsp;
+The receiver employs an RF Microdevices GaAs LNA specifically
+designed for S-band operation (1.75 db specified NF).&nbsp; I could have gotten
+a lower noise figure with a discrete solution, but that would have required much
+more work so I took the easy way out and used the MMIC.&nbsp; Next is a New
+Japan Radio Corp.&nbsp; GaAs mixer designed for 1900 MHz PCS cellular service,
+but perfectly workable up through S-band.&nbsp; The mixer boasts nearly 7dB of
+conversion GAIN - quite a change from the usual case.&nbsp; Both these parts
+were obtained from suppliers selling small lots on e-Bay, though they can be
+found elsewhere.&nbsp; In this case I paid less than $2 for both, though I had
+to buy 100 mixers ($20) and 25 amplifiers ($25).&nbsp; The receiver also uses a
+very low noise linear 3V regulator from Microchip (whose input is picked off the +5v in the
+synthesizer) and a couple of Toko helical filters and a common mini circuits
+Gali series amplifier for the IF.&nbsp; (The prototype ended up with only the input
+filter installed, but it works fine).&nbsp; You can see in the fully
+assembled photo above, that I had to move the 5 volt regulator off the
+synthesizer board to the base plate to proved some heat sinking now that the
+whole front end is powered from it - it got quite hot when free standing with no
+heat sink!</P>
+
+<P ALIGN="left"><img border="0" src="images/rxCvrtr.jpg" width="1190" height="810"></P>
+
+<P ALIGN="left">Here are a couple of photos of the PCB pattern, the first of of
+the traces, and the second is of the component silk screen.&nbsp; These are NOT
+to scale. at the bottom is a .pdf of the trace pattern I used.&nbsp; This is
+designed for 0.010&quot; Rogers RT-Duroid.&nbsp; This can be obtained on line in
+7&quot;x10&quot; sheets (010 thick) from surplus sales (<a href="http://www.surplussales.com">http://www.surplussales.com</a>).&nbsp;
+The trace widths for all the 50 Ohm transmission lines are 0.016&quot; for this
+material.&nbsp; It is very low loss, and the small traces make it a reasonable
+match to the small parts.&nbsp; You could use .031&quot; thick FR-4, but the
+transmission lines are then 0.050&quot; wide - its still possible to get
+reasonable transitions down to the component pads without huge
+discontinuities.&nbsp; You probably cannot use the common 0.062&quot; thick FR-4
+since the transmission lines are then 0.1&quot; wide and nearly impossible to
+smoothly transition to the parts.&nbsp; My first prototype used this material
+and had significant stability problems, and a much higher noise figure than the
+final circuit.&nbsp; If you use this pattern I have provided it is possible to
+simply laser print it onto glossy photo paper (get the kind WITHOUT a plastic
+back) and iron it onto the RT-Duroid directly.&nbsp; Then just soak the whole
+thing in warm water and gently rub the paper off.&nbsp; Works like a charm!</P>
+
+<div align="center">
+  <center>
+  <table border="0" width="73%">
+    <tr>
+      <td width="50%">
+        <p align="center"><img border="0" src="images/SS_Top.jpg" width="400" height="255"></td>
+      <td width="50%">
+        <p align="center"><img border="0" src="images/cpr_top.jpg" width="400" height="220"></td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <p align="center">Component placement diagram</td>
+      <td width="50%">
+        <p align="center">Trace pattern</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<P ALIGN="center"><a href="SBR_RT.pdf">Front end trace pattern</a></P>
+
+<P ALIGN="left">And finally here is a .pdf of the trace pattern which should be
+exactly to scale.&nbsp; The only potential area of difficulty is the ground
+trace under the mixer, you may have to use an Exacto knife and scrape away the
+edges under the mixer to provide more clearance for the pins, especially if you
+are soldering by hand.&nbsp; Don't worry about detaching pin&nbsp; 5 from the
+central ground strip.&nbsp; It is also vital to small drill holes beside each of
+the strip lines (2 or three on each side), at the point where U1-Pin2 meets the
+larger plane, and the same for pin 5 of U2, and surrounding the filter, as well
+as the center pin of U4.&nbsp; These should have very small (30 Gauge) wires
+inserted and soldered to the ground plane on the bottom.&nbsp; More through
+holes are better so drill as many as you can stand.&nbsp; You also have to add a
+small jumper underneath to connect the trace feeding power to U1 to the +3V
+trace feeding U2.</P>
+
+<P ALIGN="left">The S-band receive converter (below) revision 1, proved
+unsatisfactory in actual use.&nbsp; Although it worked fairly well on the bench
+it suffered from intolerable microphonics on the mast.&nbsp; These are caused
+(primarily) by the LO design.&nbsp; Its high multiplication factors make it just
+too sensitive to parasitics, its very noisy, and its output power changes over 6
+dB with small changes in the dimension of the shields.&nbsp; So a new LO design
+was needed.&nbsp; Although the KE5FX hybrid synthesizer could serve here, its
+really overkill so I set out to design a simplified version more appropriate to
+use as a fixed service L.O.&nbsp; Below is a small image of the schematic, and a
+photo of the circuit board.</P>
+
+<div align="center">
+  <center>
+  <table border="0" width="80%" bordercolor="#FFFFFF">
+    <tr>
+      <td width="40%"><img border="0" src="images/synth2_schem.jpg" width="450" height="342"></td>
+      <td width="60%"><img border="0" src="images/new_synth.jpg" width="450" height="430"></td>
+    </tr>
+    <tr>
+      <td width="40%">
+        <p align="center">Schematic</td>
+      <td width="60%">
+        <p align="center">Actual circuit</td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<p ALIGN="CENTER"><a href="schematic2.pdf">AD5MQ Synthesizer Schematic</a></p>
+
+<p ALIGN="left">A pdf of the schematic is under the link above for those who are
+interested.&nbsp; This synthesizer is simply an Analog Devices ADF4112
+synthesizer, a Mini Circuits VCO and a PIC 16F57 together with the necessary
+power supply circuits to make it all work from 12 volts (nominal) input.&nbsp;
+It can produce any number (up to several hundred) of switch selectable output
+frequencies between 1 and 2 GHz, mine is programmed to produce either 1966 MHz
+or 1152 MHz depending on the status of the push button attached to RA1 at power
+up (or reset).&nbsp; As you can see from the photo the first spin of the circuit
+boards contained a couple of small errors, easily fixed with wire-overs. The
+connector visible at the bottom of the photo is used to program the PIC and is
+compatible with the inexpensive PICKit2 programmer (&lt; $100) as well as a
+variety of more expensive devices.&nbsp;I brought all the unused pins of the PIC
+(most of them!) to pads to allow for easy future expansion.&nbsp; These could be
+used for relays, a serial interface, or anything else.&nbsp;&nbsp; Below are links to the MPLab project
+files and assembly code for programming the synthesizer, as well as the Gerber
+(RS-274) files for the circuit board.&nbsp; I was able to get 10 manufactured
+(by PCB Express) for $279.&nbsp; The parts are a little less than $100.&nbsp;
+Pretty cheap for an accurate, low noise microwave synthesizer!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p ALIGN="CENTER"><a href="Main.asm">Main.asm</a></p>
+
+<p ALIGN="CENTER"><a href="Project.zip">Project.zip</a></p>
+
+<p ALIGN="CENTER"><a href="Gerber_synth.zip">Gerber</a></p>
+
+<p ALIGN="CENTER">&nbsp;</p>
+
+<p ALIGN="CENTER">&nbsp;</p>
+
+<h1 ALIGN="CENTER">Switching power supply for KE5FX synthesizer</h1>
+
+<P ALIGN="left">I recently built a couple of KE5FX synthesizers as described in
+QEX in the March/April 2004 edition.&nbsp; (<a href="http://www.qsl.net/ke5fx/synth.html">http://www.qsl.net/ke5fx/synth.html</a>)&nbsp;
+On the whole, a very nice synthesizer and performance as advertised was fairly
+easy to get.&nbsp; The biggest drawback to this design is the complex power
+supply it requires 15 V in 2 places and 20 V for the VCO.&nbsp; For the
+projects&nbsp; I have in mind these are inconvenient so I set out to build a nice
+quiet switcher to power the synthesizer.&nbsp; Below is the result including
+a&nbsp; .zip file with Gerber suitable to have the board manufactured by&nbsp;
+PCB Express (<a href="http://www.pcbexpress.com">http://www.pcbexpress.com</a>)
+- they will make 2 blank boards for about $90, parts for the supply can all be
+had from Digikey for another $75 or so.</P>
+
+<table border="1" width="96%">
+  <tr>
+    <td width="100%"><img border="0" src="images/synth_schem.jpg" width="1083" height="687"></td>
+  </tr>
+</table>
+
+<P ALIGN="CENTER"><a href="synthesizer%20PS.pdf">synthesizer PS.pdf</a></P>
+
+<P ALIGN="left">Actual performance is excellent with noise less than 1 mV p-p
+under load on the 15 V supply, and less than 0.5 mV p-p on the 20 V supply.&nbsp;
+Here are a couple of photos of the proof of concept circuit (ugly hand wiring),
+this was mostly built out of junk box components,&nbsp; and the final PC board
+assembled.</P>
+
+<div align="center">
+  <center>
+  <table border="1" width="69%" bordercolor="#FFFFFF">
+    <tr>
+      <td width="32%" align="center">
+        <p align="center"><img border="0" src="images/PS_Proto.jpg" width="350" height="465"></td>
+      <td width="68%" align="center">
+        <p align="center"><img border="0" src="images/PS_Brd.jpg" width="400" height="264"></td>
+    </tr>
+    <tr>
+      <td width="32%" align="center">
+        <p align="center">Prototype</td>
+      <td width="68%" align="center">
+        <p align="center">Finished board</td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+<P ALIGN="left">&nbsp; Finally - here are the Gerber files for the PC board, the
+simple ones are top and bottom only (cheaper) and the other one includes solder
+mask, and a silk screen.</P>
+
+<P ALIGN="CENTER"><a href="simple_gerb.zip">simple_gerb.zip</a>&nbsp;&nbsp;&nbsp;
+<a href="gerber.zip">gerber.zip</a>&nbsp;</P>
+
+<P ALIGN="CENTER">And finally here is the BOM with Digikey part numbers shown</P>
+
+<P ALIGN="CENTER"><a href="BOM.txt">BOM.txt</a></P>
+
+<P ALIGN="CENTER">&nbsp;</P>
+
+<P ALIGN="CENTER"><font size="5"><b>2400 MHz - 435 MHz Receive Converter</b></font></P>
+
+<P ALIGN="left" style="line-height: 150%">I have been building a satellite station recently and wanted a
+receive converter to convert from S-band (2401 MHz) to UHF.&nbsp; The FM
+satellites frequently operate in either V/U or L/S modes and so its convenient
+to have the receive converter work to UHF so that a minimum amount of error
+prone reconfiguration of transceivers is necessary to change modes.&nbsp; Since
+DEMI doesn't seem to have such a beast I decided to roll my own.&nbsp;
+Fortunately I had an old S band television block converter to start from - these
+are fairly common in rural areas and mostly pre-date direct TV satellites.&nbsp;
+Thy can usually be had cheap or free.&nbsp; Unfortunately, very little but the
+mixer is reusable.&nbsp; The LO in these things, although tunable over a wide
+range, is horribly unstable and could only be used as part of P.L.L. or synthesizer.&nbsp;
+That being the case I cast around for a nice simple way to build an L.O. - and I
+found one.&nbsp; Although this design could certainly be improved, in particular
+the final multiplication should be done in 2 or more steps (e.g. X5, x2) to
+reduce spurious output, this will work adequately for satellite work - probably
+not so good for moon bounce or other weak signal modes though!&nbsp; Here is the
+schematic (and a .pdf so you can save it and zoom to see detail).</P>
+
+<P ALIGN="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</P>
+
+<table border="1" width="81%" height="77">
+  <tr>
+    <td width="100%" height="77">
+      <p align="center"><img border="0" src="images/rxvrtr.jpg" width="1120" height="769"></td>
+  </tr>
+</table>
+
+<P ALIGN="center"><a href="2401-435.pdf">receive converter schematic - pdf</a></P>
+
+<P ALIGN="left">Here are a few photos of the various parts as they were being
+assembled</P>
+
+<table border="1" width="100%">
+  <tr>
+    <td width="50%">
+      <p align="center"><img border="0" src="images/Mixer.jpg" width="1052" height="556"></td>
+    <td width="50%"><img border="0" src="images/1966_osc.jpg" width="1016" height="616"></td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <p align="center"><font color="#0000FF">Salvaged converter sowing mixer
+      and mounted I.F. amp.&nbsp; R.F. amp is underneath.</font></td>
+    <td width="50%">
+      <p align="center"><font color="#0000FF">Local Oscillator before and
+      shields were added.&nbsp;&nbsp;</font></td>
+  </tr>
+</table>
+<P style="line-height: 150%">The final implementation added a fixed 120 ohm
+resistor over the crystal oscillator module, connected in series with 180 ohms
+to the +12 v.&nbsp; and a block of foam insulation to help stabilize a high
+temperature on the crystal.&nbsp; Basically a crude constant power oven.&nbsp;
+Finally, below is a photo with the vertical shields in place, and the L.O.
+mounted above the mixer.&nbsp; The small strip of brass running down and over
+the diode multiplier provides an additional parasitic element which peaks the
+multiplier and provides a few extra dB of output.&nbsp; The heater resistor is
+visible above the crystal oscillator module. This was before the 8 volt
+regulator was added to the MMIC amplifier supply line - necessary to prevent
+overheating when the box is closed.</P>
+
+<P>&nbsp;</P>
+
+<P><img border="0" src="images/w-sheilds.jpg" width="700" height="319"></P>
+
+<P>&nbsp;</P>
+
+<P>&nbsp;&nbsp;</P>
+
+<P>&nbsp;</P>
+</BODY>
+</HTML>

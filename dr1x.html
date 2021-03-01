@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Ed Johnson - AD5MQ</title>
+<meta name="description" content="Personal website" />
+<meta name="keywords" content="Amateur Radio, Motorcycles, pets, Lions Club" />
+<link href="http://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="css/dropdown/dropdown.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="css/dropdown/themes/flickr.com/default.css" media="screen" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="scripts/footer.js" ></script>
+<script type="text/javascript" src="scripts/Menu.js" ></script>
+</head>
+<body>
+<div id="wrapper">
+	<script type="text/javascript">buildMenu();</script>
+	<!-- end #header -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+				<div id="page-content">
+					<div id="content">
+					<P ALIGN="CENTER"><font size="5"><b>B.S.A.R.C. Allstar Node</b></font></P>
+					<P ALIGN="left">In late 2015/ early 2016 I decided to build a Rhaspberry Pi based Allstar node for
+					the BSARC (Big Sandy Amateur Radio Club) primary repeater at Genoa, CO. It is the KD0TOS node and can 
+					be found on the usual sites. I had already constrcuted a
+					node the previous year but never deployed it due to power consumption fears.  The repeater is entirely solar
+					powered and I was not comfortable deploying a node that would consume 50-60W continuously with only
+					(at the time) 160 W of solar panels to keep the batteries charged.  The new node interfaces with our new
+					Yaesu DR-1X repeater without any modification to the repeater and consumes less than 12W.  It follows
+					the recipe found at <a href="http://www.crompton.com/hamradio/BeagleBoneBlackAllstar/">Asterisk Allstar</a>
+					pretty closely.  I obtained a Raspberry Pi 2 and loaded the distribution linked there, and modified a CT-108
+					USB sound dongle.  We are using a USB Wifi dongle as well for a network conenction to a nearby seed plant which
+					has internet connectivity and is owned by a club member who agreed to share his bandwidth (Thanks to K0RTS).
+					Here are some photos and schematics, contrary to other information found on the internet it is entierly possible
+					to interface teh Allstar node directly to the DR-1X without modification, and obtain perfectly satisfactory results.</P>
+					<table border="1" width="76%" cellspacing="0" cellpadding="0">
+						<tr>
+							<td>
+							<p align="center">
+							<img border="0" src="images/FOB.jpg" width="300" height="230"></td>
+						</tr>
+						<tr>
+							<td>
+							<p align="center">Un-modified sound FOB</td>
+						</tr>
+						<tr>
+							<td><img border="0" src="images/FOB1.jpg" width="400" height="331"></td>
+						</tr>
+						<tr>
+							<td>
+							<p align="center">fob wire attachment detail 1</td>
+						</tr>
+						<tr>
+							<td>
+							<p align="center">
+							<img border="0" src="images/FOB2.jpg" width="400" height="134"></td>
+						</tr>
+						<tr>
+							<td>
+							<p align="center">fob wire attachment detail 2</td>
+						</tr>
+						<tr>
+							<td>
+							<p align="center">
+							<img border="0" src="images/allstar_usb.jpg" width="600" height="450"></td>
+						</tr>
+						<tr>
+							<td>
+							<p align="center">Assembled interface</td>
+						</tr>
+						<tr>
+							<td>
+							<p align="center">
+							<img border="0" src="images/AllstarDR1Xcable.jpg" width="600" height="450"></td>
+						</tr>
+						<tr>
+							<td>
+							<p align="center">DR-1X interface cable</td>
+						</tr>
+						<tr>
+							<td>
+							<p align="center">
+							<img border="0" src="images/allstarInterface.jpg" width="600" height="450"></td>
+						</tr>
+						<tr>
+							<td>
+							<p align="center">Interface partial schematic</td>
+						</tr>
+						<tr>
+							<td>
+							<p align="center">
+							<img border="0" src="images/full_node.jpg" width="600" height="350"></td>
+						</tr>
+						<tr>
+							<td>
+							<p align="center">Fully assembled node</td>
+						</tr>
+					</table>
+					<p align="left">As you can see I elected to remove the audio jacks and the USB connector, but I have 
+					a hotair rework station which makes it easy, if you only have a soldering iron available you should leave them on.
+					if you do remove the jacks, pay particular attention to the mic jack - the pads which are useful (i.e. connected to the chip)
+					are near the center of the board - the ones on the edge are just connected to each other.  Whith the jack in place it doesn't
+					matter which ones you use - inside and outside are connected by the jack itself.
+					For the DR-1X the COR and CTCSS polarities are inverted, PTT is not. Audio levels of 850 for Rx and 950 for Tx worked for me.</p>
+					</div>
+					<!-- end #content -->
+				</div>
+				<div style="clear: both;">&nbsp;</div> 
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+</div>
+<script type="text/javascript">buildFooter();</script>
+<!-- end #footer -->
+</body>
+</html>

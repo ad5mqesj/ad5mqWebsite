@@ -1,0 +1,82 @@
+Name       PWM Generator;
+Partno     tpwm01;
+Date       04/08/97;
+Revision   02;
+Designer   esj/ads;
+Company    F.S.C.D. Research;
+Assembly   0001;
+Location   u12,13;
+Device     EP600;
+
+/******************************************************************/
+/*                                                                */
+/*                                                                */
+/*                                                                */
+/******************************************************************/
+/*  Allowable Target Device Types:  EP600                              */
+/******************************************************************/
+
+/**  Inputs  **/
+
+Pin   1       =   Pwm_clk2;      /*Tied to Pwm_clk externally            */
+Pin   [2..7]  =   [d0..d5];      /*pwm data bits 0 - 5                   */
+Pin   11      =      reset;      /*reset counter section                 */
+Pin   13      =    Pwm_clk;      /*pwm master clock ( / 256 internally)  */
+Pin   14      =         d6;      /*pwm data bit 6                        */   
+Pin   23      =         d7;      /*pwm data bit 7                        */   
+
+/**  Outputs  **/
+
+Pin   10       =         CNT0;   /*counter bit 0                         */
+Pin   [15..21] = [CNT1..CNT7];   /*counter bits 1 - 7                    */
+Pin   8        =        MATCH1;  /*count matches input..Low Nibble       */
+Pin   9        =        MATCH2;  /*count matches input..High Nibble      */
+Pin   22       =       PWM_OUT;  /*pwm out put                           */
+
+/** Declarations and Intermediate Variable Definitions **/
+any = 	d0 # d1 # d2 # d3 # 
+	d4 # d5 # d6 # d7;
+
+cnt0 = !(CNT0 # CNT1 # CNT2 # CNT3 #
+	 CNT4 # CNT5 # CNT6 # CNT7);
+
+/**  Logic Equations  **/
+
+
+Field counter = [CNT7..CNT0];       /* Declared Counter Field       */
+
+counter.t = 	'h'01
+	      # 'h'02 & CNT0
+	      # 'h'04 & [CNT0..CNT1]:&
+	      # 'h'08 & [CNT0..CNT2]:&
+	      # 'h'10 & [CNT0..CNT3]:&
+	      # 'h'20 & [CNT0..CNT4]:&
+	      # 'h'40 & [CNT0..CNT5]:&
+	      # 'h'80 & [CNT0..CNT6]:&;
+
+counter.ar = reset;
+MATCH1= (d0 $ CNT0) #
+	(d1 $ CNT1) #
+	(d2 $ CNT2) #
+	(d3 $ CNT3);
+ 
+MATCH2=	(d4 $ CNT4) #
+	(d5 $ CNT5) #
+	(d6 $ CNT6) #
+	(d7 $ CNT7);
+
+/*if counter = 0 or no match
+out put is hi else its low */
+
+/*note an input of 0 implies output is
+always low, an input of 255 implies hi
+for 255/256 clocks*/
+ 
+PWM_OUT.AR = !(MATCH1 # MATCH2);
+PWM_OUT.T = cnt0 & any;
+	
+
+
+
+
+

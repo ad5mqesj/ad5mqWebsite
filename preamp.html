@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Ed Johnson - AD5MQ</title>
+<meta name="description" content="Personal website" />
+<meta name="keywords" content="Amateur Radio, Motorcycles, pets, Lions Club" />
+<link href="http://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="css/dropdown/dropdown.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="css/dropdown/themes/flickr.com/default.css" media="screen" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="scripts/footer.js" ></script>
+<script type="text/javascript" src="scripts/Menu.js" ></script>
+</head>
+<body>
+<div id="wrapper">
+	<script type="text/javascript">buildMenu();</script>
+	<!-- end #header -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+				<div id="page-content">
+					<div id="content">
+					<P ALIGN="CENTER"><FONT SIZE="+2"><STRONG>UHF Preamp</STRONG></FONT></P>
+					<table>
+					  <tr><td><img src="images/UHF_Preamp.jpg" width="831"  alt="preamp schematic" class="alignleft border" /></td></tr>
+					  <tr><td><p>Here is a UHF preamp I designed and built (2014) for satellite work with a small (Arrow type) antenna.</p></td></tr>
+					  <tr><td><img src="images/UHF_Preamp2.jpg" width="831"  alt="preamp prototype" class="alignleft border" /></td></tr>
+					  <tr><td><p>It uses an Infineon BGA427 (a 416 would also be a good choice) MMIC for gain and a helical filter, as well 
+					  as RF sensing and switching that bypasses the amp at about 100 mW of impressed signal on the output connector.  
+					  It has a measured gain of 19.8 dB at 435 MHz, and a noise figure of about 0.9 dB at the same frequency.  Most of the 
+					  parts are common discretes (Including the Toko helical filter) available from Digikey or many other suppliers, the MMIC 
+					  can be ordered directly form Infineon, and the small relay can be obtained from Newark.</p></td></tr>
+					  <tr><td><p>Here is a <a href="AmateurRadio/TopLayer.pdf.zip">pdf</a>  that contains the top side pattern - mirrored for direct impression on a copper clad board.  The
+					  RF traces are .050 wide providing 50 ohm impedance on a 0.31 thick FR-4 double sided board.  The top ground area and bottom
+					  groud plane should be connected in many places,  I used lots of small pieces of solder wick around the edges.  There are a 
+					  few through holes needed to ground various things to the bottom plane, I also placed three through wires directly under the 
+					  helical filter to improve its grounding and therefore filtering characteristics.</p></td></tr>
+					  <tr><td><p>&nbsp;</p></td></tr>
+					</table>
+					<P ALIGN="CENTER"><FONT SIZE="+2"><STRONG>VHF Preamp</STRONG></FONT></P>
+					<table>
+					  <tr><td><img src="images/VHFpreamp.jpg" width="831"  alt="preamp schematic" class="alignleft border" /></td></tr>
+					  <tr><td><p>Here is a VHF preamp I designed and built (2014) for satellite work with a small (Arrow type) antenna.</p></td></tr>
+					  <tr><td><img src="images/VHFpreamp2.jpg" width="831"  alt="preamp prototype" class="alignleft border" /></td></tr>
+					  <tr><td><p>It uses an old 3sk124 dual gate FET for gain and a passive filter, as well 
+					  as RF sensing and switching that bypasses the amp at about 100 mW of impressed signal on the output connector.  
+					  It has a measured gain of 9.8 dB at 144 MHz, and a noise figure of about 0.9 dB at the same frequency.  Most of the 
+					  parts are common discretes (Including the Toko helical filter) available from Digikey or many other suppliers and the small relay can be obtained from Newark.</p></td></tr>
+					  
+					  <tr><td><p>&nbsp;</p></td></tr>
+					</table>
+					</div>
+					<!-- end #content -->
+				</div>
+				<div style="clear: both;">&nbsp;</div> 
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+</div>
+<script type="text/javascript">buildFooter();</script>
+<!-- end #footer -->
+</body>
+</html>

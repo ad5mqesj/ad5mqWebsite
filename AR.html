@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Ed Johnson - AD5MQ</title>
+<meta name="description" content="Personal website" />
+<meta name="keywords" content="Amateur Radio, Motorcycles, pets, Lions Club" />
+<link href="http://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="css/dropdown/dropdown.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="css/dropdown/themes/flickr.com/default.css" media="screen" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="scripts/footer.js" ></script>
+<script type="text/javascript" src="scripts/Menu.js" ></script>
+</head>
+<body>
+<div id="wrapper">
+	<script type="text/javascript">buildMenu();</script>
+	<!-- end #header -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+				<div id="page-content">
+					<div id="content">
+					<P ALIGN="CENTER"><font size="5"><b>AD5MQ H.F. Transceiver #1</b></font></P>
+					<P ALIGN="left">After moving (in 2008), my first serious project has been a full featured, 
+					all band HF Transceiver.&nbsp; I began with a fairly conventional design of the 
+					analog circuitry: a SA612 (replaced the NE602) first mixer, MC1350 IF amp, and 
+					an SA612 BFO mixer.&nbsp; I Initially designed a 2N5109 RF amplifier.&nbsp; This 
+					classic design has excellent IP-3 and good gain, but in this case the power 
+					consumption and noise figure caused me to replace it with a more modern OP-AMP 
+					based design.&nbsp; I used a Linear Technology video amplifier instead with 
+					excellent results.&nbsp; The IF is 45 MHz- dictated by the availability of nice 
+					monolithic crystal filters from ECS (via Digikey).&nbsp; The fixed BFO is a 
+					classic low noise Colpitts design with a varacter that allows for fine 
+					adjustment.&nbsp; The VFO is an Analog Devices 9852 DDS.&nbsp; the whole thing 
+					is controlled by a fairly high end PIC microcontroller, which allowed me to 
+					write the software in C, and still have a full suite of features including a 
+					keyer.&nbsp; A late addition was a switched capacitor filter in the audio path - 
+					this has its clock supplied by one of the PIC's PWM outputs so its corner 
+					frequency can be varied in software.&nbsp; The current version uses 800 Hz for 
+					CW operation and 2.85KHz for SSB.&nbsp; The RF power amplifier is a salvaged 
+					unit I got from eBay - it is capable of 100+W on all bands.&nbsp; The 
+					transceiver is not restricted in software to transmit only in the ham bands so 
+					some care is required when operating it.&nbsp; I had my first on air contact 
+					with AA8R in Michigan on November 30 using PSK-31 on 20m at 10 Watts, got a 599 
+					signal report. I monitored the transmitted audio locally with my K2 with no 
+					antenna connected just from leakage - it sounded fine.&nbsp; I am still working 
+					on the software, in particular it needs better filtering of the inputs from the 
+					main tuning shaft encoder - its quite jumpy.&nbsp; It has a round off error when 
+					computing the tuning word for the DDS which results in a frequency error of up 
+					to 725 Hz in some places, I'm sure I can think of other things to improve as 
+					well.&nbsp; Here are some pictures.</P>
+					<table border="1" width="76%" cellspacing="0" cellpadding="0">
+						<tr>
+							<td>
+							<p align="center">
+							<img border="0" src="images/rad_brds.jpg" width="600" height="495"></td>
+						</tr>
+						<tr>
+							<td>
+							<p align="center">Main Board, S.C.F. and R.F. Driver amplifier</td>
+						</tr>
+						<tr>
+							<td><img border="0" src="images/rad_schem.jpg" width="800" height="488"></td>
+						</tr>
+						<tr>
+							<td>
+							<p align="center">Partial Schematic</td>
+						</tr>
+						<tr>
+							<td>
+							<p align="center">
+							<img border="0" src="images/rad_front.jpg" width="600" height="134"></td>
+						</tr>
+						<tr>
+							<td>
+							<p align="center">Interior</td>
+						</tr>
+						<tr>
+							<td>
+							<p align="center">
+							<img border="0" src="images/rad_inside.jpg" width="800" height="718"></td>
+						</tr>
+						<tr>
+							<td>
+							<p align="center">Front panel</td>
+						</tr>
+					</table>
+					<p align="left">Here are the detailed schematic of the main board as a pdf
+					<a href="AmateurRadio/analog.pdf">analog.pdf</a>&nbsp; and a zip <a href="AmateurRadio/Analog_radio.zip">
+					Analog_radio.zip</a> of the source code for the processor.&nbsp; Since all the 
+					routines are in C they are pretty readable and might be useful for someone else.&nbsp; 
+					If you look closely at the analog section you'll see that its a direct ripoff of 
+					the design in the recent QST by KD1JV.&nbsp; Since he did such a nice job I 
+					reused it rather than roll yet another variant of the same basic circuit.&nbsp; 
+					Though, there are many changes to his basic design such as the use of an Analog 
+					Devices video switch to steer the oscillators, the rf amplifiers, (pre and post) 
+					and some others. </p>
+					</div>
+					<!-- end #content -->
+				</div>
+				<div style="clear: both;">&nbsp;</div> 
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+</div>
+<script type="text/javascript">buildFooter();</script>
+<!-- end #footer -->
+</body>
+</html>
